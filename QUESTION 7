@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+unsigned long checks;
+
+int is_prime_redesigned(unsigned long n)
+{
+    checks = 0;
+
+    if (n < 2) return 0;
+    if (n == 2) return 1;
+
+    if (n % 2 == 0)
+    {
+        checks++;
+        return 0;
+    }
+
+    for (unsigned long i = 3; i <= n / i; i += 2)
+    {
+        checks++;
+        if (n % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main(void)
+{
+    unsigned long values[] = {97, 100, 7919, 1000003};
+
+    for (int k = 0; k < 4; k++)
+    {
+        int result = is_prime_redesigned(values[k]);
+
+        printf("%8lu %-9s checks = %lu\n",
+               values[k], result ? "prime" : "not prime", checks);
+    }
+
+    return 0;
+}  
+
+OUTPUT:
+
+ 97 prime     checks = 4
+     100 not prime checks = 1
+    7919 prime     checks = 43
+ 1000003 prime     checks = 499
+
+
