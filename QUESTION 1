@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main(void)
+{
+    double price, gross, discount, taxable, tax, total, net;
+    int qty, senior;
+
+    printf("Enter price and quantity: ");
+    if (scanf("%lf %d", &price, &qty) != 2 || price < 0 || qty < 0)
+    {
+        printf("Invalid input\n");
+        return 1;
+    }
+
+    printf("Senior citizen? (1-Yes, 0-No): ");
+    if (scanf("%d", &senior) != 1 || (senior != 0 && senior != 1))
+    {
+        printf("Invalid senior status\n");
+        return 1;
+    }
+
+    gross = price * qty;
+    discount = senior ? gross * 0.15 : 0.0;
+    taxable = gross - discount;
+    tax = taxable * 0.05;
+    total = taxable + tax;
+    net = (total > 1000.0) ? total - 50.0 : total;
+
+    printf("Gross amount: Rs. %.2f\n", gross);
+    printf("Discount: Rs. %.2f\n", discount);
+    printf("GST: Rs. %.2f\n", tax);
+    printf("Total amount: Rs. %.2f\n", total);
+    printf("Net amount: Rs. %.2f\n", net);
+
+    return 0;
+}  
+
+OUTPUT:
+
+Enter price and quantity: 450 1
+Senior citizen? (1-Yes, 0-No): 1
+Gross amount: Rs. 450.00
+Discount: Rs. 67.50
+GST: Rs. 19.12
+Total amount: Rs. 401.62
+Net amount: Rs. 401.62
