@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int calls = 0;
+
+int verify_disability(int id)
+{
+    calls++;
+    /* Simulated server verification result */
+    return id % 10 == 0;
+}
+
+int main(void)
+{
+    int senior = 1, class_eligible = 0, id = 101;
+    int concession;
+
+    concession = (senior && class_eligible) || verify_disability(id);
+    printf("Concession: %s\n", concession ? "YES" : "NO");
+    printf("Verification calls: %d\n", calls);
+
+    calls = 0;
+    concession = verify_disability(id) || (senior && class_eligible);
+    printf("Reordered concession: %s\n", concession ? "YES" : "NO");
+    printf("Verification calls after reorder: %d\n", calls);
+
+    return 0;
+}  
+
+OUTPUT:
+
+Concession: NO
+Verification calls: 1
+Reordered concession: NO
+Verification calls after reorder: 1
