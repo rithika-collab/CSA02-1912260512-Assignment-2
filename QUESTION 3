@@ -47,9 +47,3 @@ int main(void)
 
     return 0;
 }  
-
-OUTPUT:
-
-00000101
-00000110
-AC is ON, PUMP is OFF
