@@ -34,13 +34,3 @@ int main(void)
 
     return 0;
 }  
-
-OUTPUT:
-
-Enter price and quantity: 450 1
-Senior citizen? (1-Yes, 0-No): 1
-Gross amount: Rs. 450.00
-Discount: Rs. 67.50
-GST: Rs. 19.12
-Total amount: Rs. 401.62
-Net amount: Rs. 401.62
