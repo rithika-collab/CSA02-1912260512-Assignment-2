@@ -26,7 +26,3 @@ int main(void)
     printf("\n");
     return 0;
 }  
-
-OUTPUT:
-
-100:S 95:S 83:A 50:D 49:F -5:? 
