@@ -26,9 +26,3 @@ int main(void)
     return 0;
 }  
 
-OUTPUT:
-
-Concession: NO
-Verification calls: 1
-Reordered concession: NO
-Verification calls after reorder: 1
